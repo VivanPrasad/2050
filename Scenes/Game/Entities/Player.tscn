@@ -1,0 +1,76 @@
+[gd_scene load_steps=16 format=3 uid="uid://lxll3jx27ow1"]
+
+[ext_resource type="Texture2D" uid="uid://c1ym2l0glwcvv" path="res://Assets/Entities/Base/player_animation.png" id="1_lpgcq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d1ku"]
+size = Vector2(7, 6)
+
+[sub_resource type="Animation" id="Animation_jvvlh"]
+resource_name = "mUp"
+
+[sub_resource type="Animation" id="Animation_u12iv"]
+resource_name = "mDown"
+
+[sub_resource type="Animation" id="Animation_gnvwq"]
+resource_name = "mLeft"
+
+[sub_resource type="Animation" id="Animation_4vkxb"]
+resource_name = "mRight"
+
+[sub_resource type="Animation" id="Animation_6qhb3"]
+resource_name = "iLeft"
+
+[sub_resource type="Animation" id="Animation_qd8sh"]
+resource_name = "iRight"
+
+[sub_resource type="Animation" id="Animation_wrv7i"]
+resource_name = "iUp"
+
+[sub_resource type="Animation" id="Animation_225ff"]
+resource_name = "iDown"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a83ve"]
+_data = {
+"iDown": SubResource("Animation_225ff"),
+"iLeft": SubResource("Animation_6qhb3"),
+"iRight": SubResource("Animation_qd8sh"),
+"iUp": SubResource("Animation_wrv7i"),
+"mDown": SubResource("Animation_u12iv"),
+"mLeft": SubResource("Animation_gnvwq"),
+"mRight": SubResource("Animation_4vkxb"),
+"mUp": SubResource("Animation_jvvlh")
+}
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ix6c1"]
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_hw2lo"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rfxem"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_ix6c1")
+states/Idle/position = Vector2(364, 70)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_hw2lo")
+states/Walk/position = Vector2(511, 83)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_potk3"]
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lpgcq")
+hframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_4d1ku")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a83ve")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_rfxem")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_potk3")
+parameters/Idle/blend_position = Vector2(0, 0)
+parameters/Walk/blend_position = Vector2(0, 0)
