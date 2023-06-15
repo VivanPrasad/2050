@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://c0w1v634550nv"]
+[gd_scene load_steps=5 format=3 uid="uid://c0w1v634550nv"]
+
+[ext_resource type="Texture2D" uid="uid://52npy22np01y" path="res://Assets/World/city-tileset.png" id="1_cvore"]
+[ext_resource type="PackedScene" uid="uid://lxll3jx27ow1" path="res://Scenes/Game/Entities/Player.tscn" id="1_nok10"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bkwi6"]
+texture = ExtResource("1_cvore")
+0:3/size_in_atlas = Vector2i(6, 7)
+0:3/0 = 0
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_igo1k"]
+tile_size = Vector2i(8, 8)
+sources/0 = SubResource("TileSetAtlasSource_bkwi6")
 
 [node name="World" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_igo1k")
+format = 2
+layer_0/tile_data = PackedInt32Array(-196606, 0, 3)
+
+[node name="Player" parent="." instance=ExtResource("1_nok10")]
