@@ -1,12 +1,9 @@
 extends CharacterBody2D
 
-
-const speed = 100
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
+var running_bonus_speed = 1 #1 when walking, 25 when running
 func _process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -22,5 +19,14 @@ func _process(delta):
 		$AnimationTree.get("parameters/playback").travel("Walk")
 	else:
 		$AnimationTree.get("parameters/playback").travel("Idle")
-	velocity = input_vector * speed
+	
+	velocity = input_vector * running_bonus_speed * 40
 	move_and_slide()
+
+func _input(_event):
+	if Input.is_action_pressed("sprint"):
+		running_bonus_speed = 2
+		$AnimationPlayer.speed_scale = 3
+	else:
+		running_bonus_speed = 1
+		$AnimationPlayer.speed_scale = 1
