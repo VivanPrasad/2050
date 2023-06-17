@@ -11,10 +11,22 @@ config_version=5
 [application]
 
 config/name="2050"
-run/main_scene="res://Scenes/Game/World.tscn"
+run/main_scene="res://Scenes/UI/Title.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
-run/max_fps=90
-config/icon="res://icon.svg"
+run/max_fps=144
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="res://Assets/Aseprite/cover.png"
+boot_splash/use_filter=false
+config/icon="res://Assets/UI/icon.png"
+config/windows_native_icon="res://Assets/UI/icon.ico"
+boot_splash/minimum_display_time=5000
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=778
+window/size/mode=2
+window/stretch/mode="viewport"
 
 [editor]
 

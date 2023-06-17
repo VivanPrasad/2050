@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://lxll3jx27ow1"]
+[gd_scene load_steps=33 format=3 uid="uid://lxll3jx27ow1"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Entities/Player.gd" id="1_gq1kr"]
 [ext_resource type="Texture2D" uid="uid://c1ym2l0glwcvv" path="res://Assets/Entities/Base/player_animation.png" id="1_lpgcq"]
@@ -300,17 +300,78 @@ graph_offset = Vector2(56, -20)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_potk3"]
 
+[sub_resource type="Animation" id="Animation_q3y16"]
+resource_name = "Camera Zoom"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(27.895, 27.895), Vector2(12, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:is_animated")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vsjmj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:is_animated")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_htdeg"]
+_data = {
+"Camera Zoom": SubResource("Animation_q3y16"),
+"RESET": SubResource("Animation_vsjmj")
+}
+
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 collision_mask = 2
 script = ExtResource("1_gq1kr")
+is_animated = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
 texture = ExtResource("1_lpgcq")
 flip_h = true
 hframes = 12
-frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1)
@@ -331,5 +392,11 @@ parameters/Walk/blend_position = Vector2(0.652491, 0.0655022)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -4)
-zoom = Vector2(12, 12)
+zoom = Vector2(20, 20)
 position_smoothing_enabled = true
+
+[node name="Fade" type="AnimationPlayer" parent="."]
+autoplay = "Camera Zoom"
+libraries = {
+"": SubResource("AnimationLibrary_htdeg")
+}
