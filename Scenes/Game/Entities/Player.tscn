@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c1ym2l0glwcvv" path="res://Assets/Entities/Base/player_animation.png" id="1_lpgcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d1ku"]
-size = Vector2(7, 4)
+size = Vector2(7, 2)
 
 [sub_resource type="Animation" id="Animation_a7ito"]
 length = 0.001
@@ -368,13 +368,14 @@ script = ExtResource("1_gq1kr")
 is_animated = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -5)
 texture = ExtResource("1_lpgcq")
+offset = Vector2(0, -8)
 flip_h = true
 hframes = 12
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1)
+position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_4d1ku")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
