@@ -111,7 +111,6 @@ texture_region_size = Vector2i(8, 8)
 14:22/size_in_atlas = Vector2i(15, 12)
 14:22/0 = 0
 14:22/0/texture_origin = Vector2i(0, 44)
-14:22/0/y_sort_origin = -48
 14:22/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:22/0/physics_layer_0/angular_velocity = 0.0
 14:22/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -44, 59.5, -44, 60, 4, -60, 4)
@@ -397,6 +396,7 @@ layer_2/tile_data = PackedInt32Array(-2424809, 786432, 2, -2228193, 1441792, 0, 
 
 [node name="Player" parent="." instance=ExtResource("1_nok10")]
 y_sort_enabled = true
+position = Vector2(-60, -36)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -80.0
@@ -465,7 +465,7 @@ script = ExtResource("5_u3mtb")
 [node name="Car" parent="CarPath1/PathFollow5" instance=ExtResource("5_3qced")]
 
 [node name="PathFollow6" type="PathFollow2D" parent="CarPath1"]
-position = Vector2(560.765, 23.8279)
+position = Vector2(560.774, 23.8279)
 rotation = -3.14053
 progress = 12044.2
 lookahead = 8.0

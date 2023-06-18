@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -372,7 +372,6 @@ texture = ExtResource("1_lpgcq")
 offset = Vector2(0, -8)
 flip_h = true
 hframes = 12
-frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -388,8 +387,8 @@ tree_root = SubResource("AnimationNodeStateMachine_rfxem")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_potk3")
-parameters/Idle/blend_position = Vector2(-0.219927, -0.240175)
-parameters/Walk/blend_position = Vector2(0.652491, 0.0655022)
+parameters/Idle/blend_position = Vector2(0, 0.907781)
+parameters/Walk/blend_position = Vector2(0, 0.976945)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, -4)
