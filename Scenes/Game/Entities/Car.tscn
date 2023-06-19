@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj5wjjjpbbmpd"]
+[gd_scene load_steps=6 format=3 uid="uid://bj5wjjjpbbmpd"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Entities/Car.gd" id="1_8slc6"]
 [ext_resource type="Texture2D" uid="uid://btr8pg17be1mj" path="res://Assets/Entities/Car/car1.png" id="2_t4gjv"]
+[ext_resource type="AudioStream" uid="uid://cktow8ulk60cb" path="res://Assets/Audio/Ambience/car.mp3" id="3_dnjsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu08y"]
 size = Vector2(24, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw00e"]
-size = Vector2(28.5, 28)
+size = Vector2(63.25, 37)
 
 [node name="Car" type="StaticBody2D"]
-visibility_layer = 2
 y_sort_enabled = true
 texture_filter = 1
 collision_layer = 3
@@ -29,8 +29,13 @@ shape = SubResource("RectangleShape2D_hu08y")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(26, 0)
+position = Vector2(43.375, 0.5)
 shape = SubResource("RectangleShape2D_hw00e")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dnjsu")
+pitch_scale = 3.0
+max_distance = 100.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

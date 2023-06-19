@@ -18,12 +18,12 @@ func _process(_delta):
 		else:
 			$AnimationTree.get("parameters/playback").travel("Idle")
 		
-		velocity = input_vector * running_bonus_speed * 40
+		velocity = input_vector * running_bonus_speed * 35
 		move_and_slide()
 
 func _input(_event):
 	if Input.is_action_pressed("sprint"):
-		running_bonus_speed = 2
+		running_bonus_speed = 1.5
 		$AnimationPlayer.speed_scale = 3
 	else:
 		running_bonus_speed = 1
