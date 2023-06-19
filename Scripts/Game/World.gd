@@ -24,3 +24,11 @@ func _on_audio_stream_player_finished():
 	$AudioStreamPlayer.stream = load("res://Assets/Audio/Music/"+str(music_name) +".mp3")
 	$Fade.play("Music Transition")
 	$AudioStreamPlayer.play()
+
+@warning_ignore("unused_parameter")
+func toggle_building(value):
+	if not $LayerTransparency.is_playing():
+		if value == true:
+			$LayerTransparency.play("Fade Buildings")
+		else:
+			$LayerTransparency.play_backwards("Fade Buildings")

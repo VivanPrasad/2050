@@ -28,3 +28,11 @@ func _input(_event):
 	else:
 		running_bonus_speed = 1
 		$AnimationPlayer.speed_scale = 1
+
+
+
+func _on_area_2d_body_entered(_body):
+	get_parent().toggle_building(true)
+
+func _on_area_2d_body_exited(_body):
+	get_parent().toggle_building(false)
