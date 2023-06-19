@@ -8,7 +8,7 @@
 size = Vector2(24, 22)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hw00e"]
-size = Vector2(63.25, 37)
+size = Vector2(57.25, 32)
 
 [node name="Car" type="StaticBody2D"]
 y_sort_enabled = true
@@ -29,7 +29,7 @@ shape = SubResource("RectangleShape2D_hu08y")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(43.375, 0.5)
+position = Vector2(40.375, 1)
 shape = SubResource("RectangleShape2D_hw00e")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
