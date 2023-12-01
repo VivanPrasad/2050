@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dg56f24y1g73u"]
+[gd_scene load_steps=15 format=3 uid="uid://dg56f24y1g73u"]
 
 [ext_resource type="Script" path="res://Scripts/UI/Title.gd" id="1_40xcq"]
 [ext_resource type="Texture2D" uid="uid://rdt2qa0oupkk" path="res://Assets/World/title_scroll.png" id="2_33uk1"]
@@ -114,6 +114,14 @@ _data = {
 "RESET": SubResource("Animation_1obnu")
 }
 
+[sub_resource type="SystemFont" id="SystemFont_8n4xq"]
+font_names = PackedStringArray("Royal Intonation")
+
+[sub_resource type="LabelSettings" id="LabelSettings_rtlgc"]
+font = SubResource("SystemFont_8n4xq")
+font_size = 32
+font_color = Color(1, 1, 1, 0.309804)
+
 [node name="Title" type="Control"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
@@ -215,6 +223,20 @@ autoplay = "Fade Audio"
 libraries = {
 "": SubResource("AnimationLibrary_hpf16")
 }
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "PROTOTYPE"
+label_settings = SubResource("LabelSettings_rtlgc")
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -4,6 +4,8 @@ extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var is_animated = false
 var running_bonus_speed = 1 #1 when walking, 25 when running
+func _ready():
+	pass
 func _process(_delta):
 	# Add the gravity.
 	if not is_animated:
@@ -29,10 +31,9 @@ func _input(_event):
 		running_bonus_speed = 1
 		$AnimationPlayer.speed_scale = 1
 
-
-
 func _on_area_2d_body_entered(_body):
 	get_parent().toggle_building(true)
+	await get_parent().get_child(0).get_layer_z_index(1) == 2
 
 func _on_area_2d_body_exited(_body):
 	get_parent().toggle_building(false)
