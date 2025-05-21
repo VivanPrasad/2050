@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bj5wjjjpbbmpd"]
 
-[ext_resource type="Script" path="res://Scripts/Game/Entities/Car.gd" id="1_8slc6"]
+[ext_resource type="Script" uid="uid://dm8djskxlqvda" path="res://Scripts/Game/Entities/Car.gd" id="1_8slc6"]
 [ext_resource type="Texture2D" uid="uid://btr8pg17be1mj" path="res://Assets/Entities/Car/car1.png" id="2_t4gjv"]
 [ext_resource type="AudioStream" uid="uid://cktow8ulk60cb" path="res://Assets/Audio/Ambience/car.mp3" id="3_dnjsu"]
 

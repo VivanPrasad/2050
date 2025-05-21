@@ -1,6 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://lxll3jx27ow1"]
+[gd_scene load_steps=33 format=3 uid="uid://lxll3jx27ow1"]
 
-[ext_resource type="Script" path="res://Scripts/Game/Entities/Player.gd" id="1_gq1kr"]
+[ext_resource type="Script" uid="uid://b71aa468eqq2e" path="res://Scripts/Game/Entities/Player.gd" id="1_gq1kr"]
 [ext_resource type="Texture2D" uid="uid://c1ym2l0glwcvv" path="res://Assets/Entities/Base/player_animation.png" id="1_lpgcq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d1ku"]
@@ -224,15 +224,15 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a83ve"]
 _data = {
-"RESET": SubResource("Animation_a7ito"),
-"iDown": SubResource("Animation_225ff"),
-"iLeft": SubResource("Animation_6qhb3"),
-"iRight": SubResource("Animation_qd8sh"),
-"iUp": SubResource("Animation_wrv7i"),
-"mDown": SubResource("Animation_u12iv"),
-"mLeft": SubResource("Animation_gnvwq"),
-"mRight": SubResource("Animation_4vkxb"),
-"mUp": SubResource("Animation_jvvlh")
+&"RESET": SubResource("Animation_a7ito"),
+&"iDown": SubResource("Animation_225ff"),
+&"iLeft": SubResource("Animation_6qhb3"),
+&"iRight": SubResource("Animation_qd8sh"),
+&"iUp": SubResource("Animation_wrv7i"),
+&"mDown": SubResource("Animation_u12iv"),
+&"mLeft": SubResource("Animation_gnvwq"),
+&"mRight": SubResource("Animation_4vkxb"),
+&"mUp": SubResource("Animation_jvvlh")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8kkef"]
@@ -298,8 +298,6 @@ states/Walk/position = Vector2(511, 83)
 transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_lmkba"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_q0xqp"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_l475g"), "Walk", "End", SubResource("AnimationNodeStateMachineTransition_h76gs")]
 graph_offset = Vector2(56, -20)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_potk3"]
-
 [sub_resource type="Animation" id="Animation_q3y16"]
 resource_name = "Camera Zoom"
 length = 2.0
@@ -357,8 +355,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_htdeg"]
 _data = {
-"Camera Zoom": SubResource("Animation_q3y16"),
-"RESET": SubResource("Animation_vsjmj")
+&"Camera Zoom": SubResource("Animation_q3y16"),
+&"RESET": SubResource("Animation_vsjmj")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mmcu0"]
@@ -381,14 +379,12 @@ shape = SubResource("RectangleShape2D_4d1ku")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_a83ve")
+&"": SubResource("AnimationLibrary_a83ve")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_rfxem")
 anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_potk3")
 parameters/Idle/blend_position = Vector2(0, 0.907781)
 parameters/Walk/blend_position = Vector2(0, 0.976945)
 
@@ -398,15 +394,15 @@ zoom = Vector2(9, 9)
 position_smoothing_enabled = true
 
 [node name="Fade" type="AnimationPlayer" parent="."]
-autoplay = "Camera Zoom"
 libraries = {
-"": SubResource("AnimationLibrary_htdeg")
+&"": SubResource("AnimationLibrary_htdeg")
 }
+autoplay = "Camera Zoom"
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
-priority = 2.0
+priority = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, -6.5)

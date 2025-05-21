@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://dg56f24y1g73u"]
 
-[ext_resource type="Script" path="res://Scripts/UI/Title.gd" id="1_40xcq"]
+[ext_resource type="Script" uid="uid://diexyoob7g6ce" path="res://Scripts/UI/Title.gd" id="1_40xcq"]
 [ext_resource type="Texture2D" uid="uid://rdt2qa0oupkk" path="res://Assets/World/title_scroll.png" id="2_33uk1"]
 [ext_resource type="AudioStream" uid="uid://dtiv5ooalrou1" path="res://Assets/Audio/Music/title.mp3" id="3_yywqi"]
 
@@ -46,8 +46,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6j88k"]
 _data = {
-"Color": SubResource("Animation_e8dvb"),
-"RESET": SubResource("Animation_a3k38")
+&"Color": SubResource("Animation_e8dvb"),
+&"RESET": SubResource("Animation_a3k38")
 }
 
 [sub_resource type="SystemFont" id="SystemFont_2ympb"]
@@ -110,8 +110,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hpf16"]
 _data = {
-"Fade Audio": SubResource("Animation_1nngb"),
-"RESET": SubResource("Animation_1obnu")
+&"Fade Audio": SubResource("Animation_1nngb"),
+&"RESET": SubResource("Animation_1obnu")
 }
 
 [sub_resource type="SystemFont" id="SystemFont_8n4xq"]
@@ -166,10 +166,10 @@ mix_target = 1
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Color"
 libraries = {
-"": SubResource("AnimationLibrary_6j88k")
+&"": SubResource("AnimationLibrary_6j88k")
 }
+autoplay = "Color"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 modulate = Color(2, 2, 2, 1)
@@ -219,10 +219,10 @@ theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="Fade" type="AnimationPlayer" parent="."]
-autoplay = "Fade Audio"
 libraries = {
-"": SubResource("AnimationLibrary_hpf16")
+&"": SubResource("AnimationLibrary_hpf16")
 }
+autoplay = "Fade Audio"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
